@@ -1,0 +1,31 @@
+---
+layout: default
+title: Hello :)
+---
+
+<header>
+  <a class="title" href="/">
+    <h1>Hello :)</h1>
+  </a>
+  <nav>
+    <p><a href="/">Home</a> <a href="/blog/">Blog</a></p>
+  </nav>
+</header>
+
+<main>
+  <h1>Latest Posts</h1>
+  
+  <ul class="blog-posts">
+    {% assign sorted_posts = site.posts | reverse %}
+    {% for post in sorted_posts limit:10 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b, %Y" }}</time></span>
+    </li>
+    {% endfor %}
+  </ul>
+</main>
+
+<footer>
+  here is da footer
+</footer>
